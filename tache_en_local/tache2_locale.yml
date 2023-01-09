@@ -1,0 +1,10 @@
+  ___
+
+  - name: play1
+    hosts: localhost
+    ansible_connection: local
+    tasks:
+    - name: creation via a local connection
+      file:
+        path: /home/tak/ANSIBLE/tache_en_local/fic5
+        state: touch  

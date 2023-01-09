@@ -1,0 +1,9 @@
+---
+
+- name: play1
+  hosts: localhost
+  tasks: 
+  - name: creation via connection ssh 
+    file:
+     path: /home/tak/ANSIBLE/tache_en_local/fic3
+     state: touch 

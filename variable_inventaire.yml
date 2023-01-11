@@ -1,0 +1,11 @@
+---
+- name: variable playbook
+  hosts: host1
+  tasks:
+  - name: create a web file
+    file:
+      path: '{{ web_file}}'
+      state: '{{file_state}}'
+    when: web_file is defined 
+
+

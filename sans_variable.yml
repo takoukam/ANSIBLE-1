@@ -1,0 +1,11 @@
+---
+- name: variable playbook
+  hosts: host1
+  tasks:
+  - name: create a web file
+    file:
+      path: /home/ansible/fic4
+      state: touch
+    
+
+

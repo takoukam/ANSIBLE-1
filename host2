@@ -1,0 +1,4 @@
+[web]
+host1 ansible_password=ansible ansible_user=ansible
+[ha]
+

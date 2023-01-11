@@ -1,0 +1,28 @@
+---
+- name: play1
+  hosts: host1
+  vars:
+    files: {web2,web3,web4}
+  tasks:
+  - name: create files 
+    file:
+      path: '/home/ansible/{{item}}'
+      state: '{{file_state}}'
+    with_items: '{{files}}'
+    when: file_state is defined
+- name: plays2
+  hosts: host1
+  vars:
+    dirs:
+      - dossier1
+      - dossier2
+      - dossier3
+  tasks: 
+  - name: create directories
+    file:
+      path: '/home/ansible/{{item}}'
+      state: directory
+    with_items: '{{dirs}}'
+
+     
+

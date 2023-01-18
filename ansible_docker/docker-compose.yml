@@ -1,0 +1,28 @@
+version: "3"
+services:
+  master:
+    build:
+      context: .
+      dockerfile: ./master_Dockerfile
+    working_dir: /home/tak/ANSIBLE/ansible_docker
+    volumes:
+      - /home/tak/ANSIBLE/ansible_docker/playbook_data
+      - /home/tak/ANSIBLE/ansible_docker/config_data
+    command: tail -f /dev/null
+
+  serveur_web: 
+    build:
+      context: . 
+      dockerfile: ./server.Dockerfile
+    command: tail -f /dev/null
+
+  serveur_db:
+    build:
+      context: .
+      dockerfile: ./server.Dockerfile
+  serveur_lb: 
+    build:
+      context: .
+      dockerfile: ./server.Dockerfile
+    ports:
+    - 8080:80

@@ -1,0 +1,22 @@
+# cette image est celle qui servira pour creer le conteneur master'celui qui hebergera ansible)
+
+FROM ubuntu:18.04
+
+CMD ["tail -f dev/null"]
+
+
+MAINTAINER Tak mireille <nzonteumireille@gmail.com>
+
+RUN apt update -y
+
+RUN apt upgrade -y
+
+RUN apt install -y python3-pip git vim 
+
+RUN pip3 install ansible==2.9.10
+
+ENV PATH=/opt/ansible/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+ENV PYTHONPATH=/opt/ansible/lib:
+
+CMD ["ansible-playbook" "--version"]

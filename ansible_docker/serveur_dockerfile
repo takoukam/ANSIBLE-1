@@ -9,7 +9,7 @@ RUN apt install -y python3-pip git vim iproute2
 RUN apt install openssh-server -y
 
 RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-
+RUN service ssh start
 RUN ssh-keygen -A
 # RUN echo "user_name:password" | chpasswd
 

@@ -14,12 +14,7 @@ services:
     build:
       context: . 
       dockerfile: ./serveur_Dockerfile
-    command: 
-      - /bin/bash
-      - -c
-      - |
-        service ssh start
-        tail -f /dev/null
+    command: tail -f /dev/null
 
   serveur_db:
     build:

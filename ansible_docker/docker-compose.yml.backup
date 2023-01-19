@@ -10,24 +10,13 @@ services:
       - /home/tak/ANSIBLE/ansible_docker/config_data
     command: tail -f /dev/null
 
-  serveur_web: 
-    build:
-      context: . 
-      dockerfile: ./serveur_Dockerfile
-    command: 
-      - /bin/bash
-      - -c
-      - |
-        service ssh start
-        tail -f /dev/null
+  serveur_web:
+    image: "image_serveur:v1"         
+    command: tail -f /dev/null
 
   serveur_db:
-    build:
-      context: .
-      dockerfile: ./serveur_Dockerfile
+    image: "image_serveur:v1"
   serveur_lb: 
-    build:
-      context: .
-      dockerfile: ./serveur_Dockerfile
+    image: "image_serveur:v1" 
     ports:
       - 8080:80

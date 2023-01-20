@@ -1,5 +1,6 @@
 version: "3"
 services:
+
   master:
     build:
       context: .
@@ -10,7 +11,7 @@ services:
       - /home/tak/ANSIBLE/ansible_docker/config_data
     command: tail -f /dev/null
 
-  serveur_web: 
+  serveur_web:
     build:
       context: . 
       dockerfile: ./serveur_Dockerfile
@@ -25,7 +26,8 @@ services:
     build:
       context: .
       dockerfile: ./serveur_Dockerfile
-  serveur_lb: 
+  
+  serveur_lb:
     build:
       context: .
       dockerfile: ./serveur_Dockerfile

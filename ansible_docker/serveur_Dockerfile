@@ -1,0 +1,31 @@
+FROM ubuntu:18.04
+
+#RUN apt update -y
+RUN apt update -y 2>/dev/null | grep packages | cut -d '.' -f 1
+#RUN apt upgrade -y
+
+RUN apt install -y python3-pip git vim iproute2
+
+RUN apt install openssh-server -y
+
+RUN echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
+
+# Ajoutez votre utilisateur
+RUN useradd -m -s /bin/bash usr_awx
+RUN echo "usr_awx:toto" | chpasswd
+
+# Autoriser l'accès à la cmd sudo pour cet utilisateur
+RUN echo "usr_awx ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+#RUN useradd -rm -d /home/usr_awx -s /bin/bash -g root -G sudo -u 1001 usr_awx
+#USER usr_awx
+#RUN echo 'usr_awx:toto' | chpasswd
+RUN ssh-keygen -A
+# RUN echo "user_name:password" | chpasswd
+
+RUN service ssh start
+RUN echo "root:password" | chpasswd
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
+
+ 

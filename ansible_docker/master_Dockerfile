@@ -2,17 +2,14 @@
 
 FROM ubuntu:18.04
 
-CMD ["tail -f dev/null"]
-
-
 MAINTAINER Tak mireille <nzonteumireille@gmail.com>
 
 RUN apt update -y
 
-RUN apt upgrade -y
+#RUN apt upgrade -y
 
-RUN apt install -y python3-pip git vim 
+RUN apt install -y python3-pip git vim iputils-ping  
 
 RUN pip3 install ansible==2.9.10
-
+CMD ["tail -f /dev/null"]
 

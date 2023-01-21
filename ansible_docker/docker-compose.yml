@@ -5,10 +5,10 @@ services:
     build:
       context: .
       dockerfile: ./master_Dockerfile
-    working_dir: /home/tak/ANSIBLE/ansible_docker
+    working_dir: $HOME/ANSIBLE/ansible_docker
     volumes:
-      - /home/tak/ANSIBLE/ansible_docker/playbook_data
-      - /home/tak/ANSIBLE/ansible_docker/config_data
+      - $HOME/ANSIBLE/ansible_docker/playbook_data
+      - $HOME/ANSIBLE/ansible_docker/config_data
     command: tail -f /dev/null
 
   serveur_web:
